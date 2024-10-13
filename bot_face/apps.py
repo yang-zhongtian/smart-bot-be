@@ -6,7 +6,7 @@ from .chroma import get_chroma_client
 class BotFaceConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'bot_face'
-    verbose_name = 'Bot Face'
+    verbose_name = 'Face'
 
     def ready(self):
         chroma_client = get_chroma_client()

@@ -5,6 +5,7 @@ from .exception import ServiceUnavailableError, BadRequestError
 api = NinjaAPI()
 
 api.add_router("/auth/", "bot_auth.api.router")
+api.add_router("/host/", "bot_host.api.router")
 
 
 @api.exception_handler(ServiceUnavailableError)

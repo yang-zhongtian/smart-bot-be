@@ -9,7 +9,7 @@ from .face import FaceLib
 
 
 class UserFace(models.Model):
-    user = models.OneToOneField(User, verbose_name='user', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, verbose_name='user', on_delete=models.CASCADE, related_name='userface')
     face_image = models.ImageField('face image', upload_to='face_images')
     face_uuid = models.UUIDField('face UUID', blank=True, null=True, unique=True, db_index=True)
     created_at = models.DateTimeField('create time', auto_now_add=True)
