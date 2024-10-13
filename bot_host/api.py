@@ -26,7 +26,7 @@ def host_list(request):
     return data
 
 
-@router.get('/{host_id}', response=HostSchema)
+@router.get('/{host_id}/', response=HostSchema)
 def host_detail(request, host_id: str):
     host = Host.objects.get(id=host_id)
     status = StatusSchema(
@@ -42,13 +42,13 @@ def host_detail(request, host_id: str):
     return schema
 
 
-@router.get('/{host_id}/history', response=List[FaceRecordSchema])
+@router.get('/{host_id}/history/', response=List[FaceRecordSchema])
 def face_history(request, host_id: str):
     host = Host.objects.get(id=host_id)
     return host.facedetectionrecord_set.all().order_by('-created_at')
 
 
-@router.get('/{host_id}/history/latest', response=FaceRecordSchema)
+@router.get('/{host_id}/history/latest/', response=FaceRecordSchema)
 def face_latest(request, host_id: str):
     host = Host.objects.get(id=host_id)
     return host.facedetectionrecord_set.latest('created_at')
